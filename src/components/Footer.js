@@ -2,25 +2,41 @@ import React from 'react';
 import { Box, Flex, VStack, HStack, Text, Link, IconButton, Divider } from '@chakra-ui/react';
 import { EmailIcon } from '@chakra-ui/icons';
 import { FaTwitter } from 'react-icons/fa';
+import footerBackground from '../Assets/footer.png';  // Ensure this path is correct
 
 const Footer = () => {
   return (
-    <Box as="footer" bg="black" color="white" py={8} px={4}>
+    <Box
+      as="footer"
+      bg="black"
+      color="white"
+      py={8}
+      px={4}
+      position="relative"
+    >
+      {/* Footer Content */}
       <Flex
         maxW="1200px"
         mx="auto"
         direction={['column', 'column', 'row']}
         justifyContent="space-between"
         alignItems={['center', 'center', 'flex-start']}
+        position="relative"
+        zIndex={1}
       >
         {/* Left Section - Logo and Social Icons */}
-        <VStack align={['center', 'center', 'flex-start']} mb={[8, 8, 0]}>
+        <VStack align="left" mb={[8, 8, 0]} spacing={6}>
           {/* Logo */}
-          <Text fontSize="3xl" fontWeight="bold" color="cyan.400">
-            Urban Resilience.AI Lab
-          </Text>
+          <Box
+            as="img"
+            src={footerBackground}
+            alt="Urban Resilience AI Logo"
+            width={["200px", "300px", "400px"]}  // Adjust based on screen size
+            height="auto"
+          />
+
           {/* Social Icons */}
-          <HStack spacing={4} mt={4}>
+          <HStack spacing={4}>
             <IconButton
               as="a"
               href="mailto:mostafavi@tamu.edu"
@@ -30,6 +46,8 @@ const Footer = () => {
               colorScheme="whiteAlpha"
               borderColor="cyan.400"
               _hover={{ bg: 'cyan.400', color: 'black' }}
+              size="lg"
+              isRound
             />
             <IconButton
               as="a"
@@ -40,46 +58,34 @@ const Footer = () => {
               colorScheme="whiteAlpha"
               borderColor="cyan.400"
               _hover={{ bg: 'cyan.400', color: 'black' }}
+              size="lg"
+              isRound
             />
           </HStack>
         </VStack>
 
         {/* Middle Section - Contact Info */}
-        <VStack align={['center', 'center', 'flex-start']} mb={[8, 8, 0]}>
-          <Text fontSize="lg">Urban Resilience.AI Lab</Text>
-          <Text>3136 TAMU</Text>
-          <Text>College Station, TX, 77843</Text>
-          <Link href="mailto:mostafavi@tamu.edu" color="cyan.400" fontWeight="bold">
+        <VStack align="flex-start" mb={[8, 8, 0]} spacing={2}>
+          <Text fontSize="lg" fontWeight="bold"  color="cyan.400">Contact us</Text>
+          <Text fontSize="lg" opacity={0.7}>Urban Resilience.AI Lab</Text>
+          <Text opacity={0.7}>3136 TAMU</Text>
+          <Text opacity={0.7}>College Station, TX, 77843</Text>
+          <Link href="mailto:mostafavi@tamu.edu" fontWeight="bold">
             mostafavi@tamu.edu
           </Link>
         </VStack>
 
         {/* Right Section - Quick Links */}
-        <VStack align={['center', 'center', 'flex-start']}>
-          <Text fontSize="lg" fontWeight="bold">
-            Quick Links
-          </Text>
-          <Link href="#" color="cyan.400">
-            Home
-          </Link>
-          <Link href="#" color="cyan.400">
-            Research
-          </Link>
-          <Link href="#" color="cyan.400">
-            People
-          </Link>
-          <Link href="#" color="cyan.400">
-            Publications
-          </Link>
-          <Link href="#" color="cyan.400">
-            Media
-          </Link>
-          <Link href="#" color="cyan.400">
-            Awards
-          </Link>
-          <Link href="#" color="cyan.400">
-            Opportunities
-          </Link>
+        <VStack align="flex-start" spacing={2} fontWeight="bold">
+          <Text fontSize="lg" opacity={0.7}>Quick Links</Text>
+          <Link href="#" color="cyan.400">Home</Link>
+          <Link href="#" color="cyan.400">Research</Link>
+          <Link href="#" color="cyan.400">People</Link>
+          <Link href="#" color="cyan.400">Publications</Link>
+          <Link href="#" color="cyan.400">News</Link>
+          <Link href="#" color="cyan.400">Media</Link>
+          <Link href="#" color="cyan.400">Awards</Link>
+          <Link href="#" color="cyan.400">Opportunities</Link>
         </VStack>
       </Flex>
 
@@ -87,12 +93,12 @@ const Footer = () => {
       <Divider borderColor="gray.700" my={8} />
 
       {/* Footer Bottom - Copyright */}
-      <Box textAlign="center">
-        <Text fontSize="sm" mb={2}>
-          &copy; 2020 Urban Resilience.AI
-        </Text>
-        <Text fontSize="sm">Site designed by Impact Media Lab</Text>
-      </Box>
+      <Flex justify="space-around" align="center" px={4} zIndex={1}>
+      <Text fontSize="sm">&copy; 2020 Urban Resilience.AI</Text>
+      <Text fontSize="sm">Site designed by Impact Media Lab</Text>
+      </Flex>
+
+
     </Box>
   );
 };

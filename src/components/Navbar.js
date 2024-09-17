@@ -56,7 +56,7 @@ const Navbar = () => {
         <Flex alignItems="center">
           <Stack 
             direction="row" 
-            spacing={8} 
+            spacing={1.5} 
             display={{ base: 'none', md: 'flex' }} // Keep space larger for elegance
             alignItems="center"
           >
