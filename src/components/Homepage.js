@@ -1,12 +1,23 @@
-import { Box, Heading, Button, Text, Image, Flex, Link } from '@chakra-ui/react';
+import { Box, Heading, Button, Text, Image, Flex, Link, Stack } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import photo1 from '../Assets/photos/photo1.jpg';
 import photo2 from '../Assets/photos/photo2.jpg';
 import photo3 from '../Assets/photos/photo3.jpg';
 import photo4 from '../Assets/photos/photo4.jpg';
+import Carousel from './Carousal';
+import { FaArrowRight } from 'react-icons/fa';
+import chicago from '../Assets/logos/chicago_tribune.png';
+import ibm from '../Assets/logos/ibm.png';
+import nsf from '../Assets/logos/nsf.png';
+import scientific from '../Assets/logos/scientific_american.png';
+import us_news from '../Assets/logos/us_news.png';
+import LatestNews from './LatestNews';
+import LatestTweets from './LatestTweets';
+import Collaboration from './Collaboration';
 
 const HomePage = () => {
   return (
+    <Box>
     <Box bg="gray.900" color="white" minHeight="100vh" padding="4rem 2rem">
       {/* Hero Section */}
       <Flex
@@ -48,7 +59,7 @@ const HomePage = () => {
 
       {/* Transformative Solutions Section */}
       <Box 
-        mt={28} 
+        mt={28}
         textAlign="center" 
         width='80%' 
         mx="auto"  // Centers the box horizontally
@@ -126,8 +137,72 @@ const HomePage = () => {
         </Flex>
       </Box>
     
+    {/* Section for new perspective on urban resilience */}
+    <Carousel />
 
+  </Box>
+
+    {/* company section */}
+      <Box width="100%" py={10} bgGradient="linear(to-r, #550b14, #074372)">
+      {/* Section Heading */}
+      <Heading as="h2" textAlign="center" color="white" mb={8} fontSize="2xl">
+        Where we've been featured
+      </Heading>
+
+      {/* Logos */}
+      <Flex justifyContent="center" alignItems="center" mb={8} wrap="wrap" gap={12}>
+        {/* Replace the source links with your image URLs */}
+        <Image
+          src={scientific}
+          alt="Scientific American"
+          height="60px"
+          objectFit="contain"
+        />
+        <Image
+          src={nsf}
+          alt="NSF"
+          height="80px"
+          objectFit="contain"
+        />
+        <Image
+          src={chicago}
+          alt="Chicago Tribune"
+          height="60px"
+          objectFit="contain"
+        />
+        <Image
+          src={ibm}
+          alt="IBM"
+          height="60px"
+          objectFit="contain"
+        />
+        <Image
+          src={us_news}
+          alt="US News"
+          height="60px"
+          objectFit="contain"
+        />
+      </Flex>
+
+      {/* Buttons */}
+      <Stack direction={['column', 'row']} spacing={6} justify="center" align="center">
+        <Link href="/media" _hover={{ textDecoration: 'none' }}>
+          <Button rightIcon={<FaArrowRight />} colorScheme="teal" variant="outline">
+            In the media
+          </Button>
+        </Link>
+        <Link href="/awards" _hover={{ textDecoration: 'none' }}>
+          <Button rightIcon={<FaArrowRight />} colorScheme="teal" variant="outline">
+            Our awards
+          </Button>
+        </Link>
+      </Stack>
     </Box>
+
+    <LatestNews />
+    <LatestTweets />
+    <Collaboration />
+  </Box>
   );
 };
 
