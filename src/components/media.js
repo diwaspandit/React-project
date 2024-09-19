@@ -4,13 +4,14 @@ import { EmailIcon } from '@chakra-ui/icons';
 import { FaTwitter } from 'react-icons/fa';
 import LatestMedia from './LatestMedia';
 import { NavLink } from 'react-router-dom';
+import image1 from '../Assets/media/media1.jpg';
 
 const Media = () => {
   return (
     <Box backgroundColor="#0b2e33">
     <Box
       position="relative"
-      backgroundImage="url('https://www.urbanresilience.ai/images/news-bg.jpg')" // Background image
+      backgroundImage=""// Background image
       backgroundSize="cover"
       backgroundPosition="center"
       height="100vh"
@@ -67,21 +68,16 @@ const Media = () => {
           Featured
         </Text>
         <Image
-          src="https://www.urbanresilience.ai/images/trophy.jpg" // Featured image
+          src={image1} // Featured image
           alt="Award"
           borderRadius="md"
           mb={4}
         />
         <Text fontSize="xl" fontWeight="bold" mb={2}>
-          Prof. Mostafavi Received the 2023 ASCE Daniel Halpin Award!
+        Big data-derived tool facilitates closer monitoring of recovery from natural disasters
         </Text>
         <Text fontSize="md">
-          Prof. Mostafavi received the 2023 ASCE Daniel W. Halpin Award for
-          Scholarship in Construction from ASCE’s Construction Institute for
-          “exceptional leadership in establishing an outstanding research program
-          that pioneer theories and practices of civil infrastructure resilience
-          management to extreme weather events through advancing the state of the
-          art in data-driven methods and computational modeling techniques.”
+        National Science Foundation
         </Text>
       </Box>
     </Box>

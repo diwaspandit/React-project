@@ -4,13 +4,14 @@ import { EmailIcon } from '@chakra-ui/icons';
 import { FaTwitter } from 'react-icons/fa';
 import LatestNews from './LatestNews';
 import { NavLink } from 'react-router-dom';
+import image1 from '../Assets/news/news1.jpg';
 
 const News = () => {
   return (
     <Box backgroundColor="#0b2e33">
     <Box
       position="relative"
-      backgroundImage="url('https://www.urbanresilience.ai/images/news-bg.jpg')" // Background image
+      backgroundImage="" // Background image
       backgroundSize="cover"
       backgroundPosition="center"
       height="100vh"
@@ -67,7 +68,7 @@ const News = () => {
           Featured
         </Text>
         <Image
-          src="https://www.urbanresilience.ai/images/trophy.jpg" // Featured image
+          src={image1} // Featured image
           alt="Award"
           borderRadius="md"
           mb={4}
