@@ -3,6 +3,7 @@ import { Box, Flex, VStack, HStack, Text, Link, IconButton, Divider } from '@cha
 import { EmailIcon } from '@chakra-ui/icons';
 import { FaTwitter } from 'react-icons/fa';
 import footerBackground from '../Assets/footer.png';  // Ensure this path is correct
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -78,14 +79,14 @@ const Footer = () => {
         {/* Right Section - Quick Links */}
         <VStack align="flex-start" spacing={2} fontWeight="bold">
           <Text fontSize="lg" opacity={0.7}>Quick Links</Text>
-          <Link href="#" color="cyan.400">Home</Link>
-          <Link href="#" color="cyan.400">Research</Link>
-          <Link href="#" color="cyan.400">People</Link>
-          <Link href="#" color="cyan.400">Publications</Link>
-          <Link href="#" color="cyan.400">News</Link>
-          <Link href="#" color="cyan.400">Media</Link>
-          <Link href="#" color="cyan.400">Awards</Link>
-          <Link href="#" color="cyan.400">Opportunities</Link>
+          <NavLink to="/Research" color="cyan.400">Research</NavLink>
+          <NavLink to="/" color="cyan.400">Home</NavLink>
+          <NavLink to="/People" color="cyan.400">People</NavLink>
+          <NavLink to="/Publications" color="cyan.400">Publications</NavLink>
+          <NavLink to="/News" color="cyan.400">News</NavLink>
+          <NavLink to="/Media" color="cyan.400">Media</NavLink>
+          <NavLink to="/Awards" color="cyan.400">Awards</NavLink>
+          <NavLink to="/Opportunities" color="cyan.400">Opportunities</NavLink>
         </VStack>
       </Flex>
 

@@ -1,4 +1,4 @@
-import { Box, Heading, Button, Text, Image, Flex, Link, Stack } from '@chakra-ui/react';
+import { Box, Heading, Button, Text, Image, Flex, Stack } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import photo1 from '../Assets/photos/photo1.jpg';
 import photo2 from '../Assets/photos/photo2.jpg';
@@ -11,9 +11,12 @@ import ibm from '../Assets/logos/ibm.png';
 import nsf from '../Assets/logos/nsf.png';
 import scientific from '../Assets/logos/scientific_american.png';
 import us_news from '../Assets/logos/us_news.png';
-import LatestNews from './LatestNews';
+
 import LatestTweets from './LatestTweets';
 import Collaboration from './Collaboration';
+import LatestNews from './LatestNews';
+import LatestMedia from './LatestMedia';
+import { NavLink } from 'react-router-dom';
 
 const HomePage = () => {
   return (
@@ -32,7 +35,7 @@ const HomePage = () => {
           <Heading as="h1" fontSize={['2xl', '3xl', '4xl']} mb="4" lineHeight="1.2">
             Smart and equitable <Text as="span" color="teal.300">resilience</Text>
           </Heading>
-          <Link href="/research">
+          <NavLink to="/Research">
             <Button
               rightIcon={<ArrowForwardIcon />}
               colorScheme="teal"
@@ -41,7 +44,7 @@ const HomePage = () => {
             >
               Our science
             </Button>
-          </Link>
+          </NavLink>
         </Box>
 
         {/* Right Section - Image */}
@@ -76,7 +79,7 @@ const HomePage = () => {
           goal is to create knowledge and technologies to reduce the social, economic, and physical
           impacts of these disasters on communities.
         </Text>
-        <Link href="/research">
+        <NavLink to="/Research">
           <Button
             rightIcon={<ArrowForwardIcon />}
             colorScheme="teal"
@@ -84,10 +87,12 @@ const HomePage = () => {
             size="lg"
             borderColor="teal.300"
             _hover={{ bg: 'teal.300', color: 'gray.900' }}
+            
           >
-            More about our research
+              More about our research
           </Button>
-        </Link>
+          </NavLink>
+          
       </Box>
 
       {/* Image Grid Section */}
@@ -186,20 +191,21 @@ const HomePage = () => {
 
       {/* Buttons */}
       <Stack direction={['column', 'row']} spacing={6} justify="center" align="center">
-        <Link href="/media" _hover={{ textDecoration: 'none' }}>
+        <NavLink to="/Media" _hover={{ textDecoration: 'none' }}>
           <Button rightIcon={<FaArrowRight />} colorScheme="teal" variant="outline">
             In the media
           </Button>
-        </Link>
-        <Link href="/awards" _hover={{ textDecoration: 'none' }}>
+        </NavLink>
+        <NavLink to="/Awards" _hover={{ textDecoration: 'none' }}>
           <Button rightIcon={<FaArrowRight />} colorScheme="teal" variant="outline">
             Our awards
           </Button>
-        </Link>
+        </NavLink>
       </Stack>
     </Box>
 
-    <LatestNews />
+    <LatestNews limit={3}/>
+    <LatestMedia limit={3} />
     <LatestTweets />
     <Collaboration />
   </Box>

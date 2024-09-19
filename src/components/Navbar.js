@@ -17,9 +17,11 @@ import {
   useColorModeValue,
   Text
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import logo from '../Assets/Urban-ResilienceAi-Lab_Color.png'; // Import the logo
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -31,53 +33,56 @@ const Navbar = () => {
   const backgroundColor = useColorModeValue('#0a1e30', '#0a1e30'); // Navy blue background
 
   return (
-    <Box 
-      bg={backgroundColor} 
-      color="white" 
-      px={{ base: 4, md: 8 }} 
-      py={4} 
+    <Box
+      bg={backgroundColor}
+      color="white"
+      px={{ base: 4, md: 8 }}
+      py={4}
       fontFamily={fontFamily}
       letterSpacing="0.1em"
       boxShadow="md"
     >
-      <Flex 
-        h={16} 
-        alignItems="center" 
-        justifyContent="space-between" 
-        maxW="1200px" 
+      <Flex
+        h={16}
+        alignItems="center"
+        justifyContent="space-between"
+        maxW="1200px"
         mx="auto"
       >
-        <Image 
-          src={logo} 
-          alt="Urban Resilience.AI Lab" 
+        <Link to="/" ><Image
+          src={logo}
+          alt="Urban Resilience.AI Lab"
           boxSize={{ base: '100px', md: '150px' }}
           objectFit="contain"
         />
+        </Link>
         <Flex alignItems="center">
-          <Stack 
-            direction="row" 
-            spacing={1.5} 
+          <Stack
+            direction="row"
+            spacing={1.5}
             display={{ base: 'none', md: 'flex' }} // Keep space larger for elegance
             alignItems="center"
           >
-            {['Research', 'News', 'Media', 'People', 'Publications', 'Opportunities'].map((item) => (
-              <Text
-                as="a"
-                key={item}
-                fontSize={fontSize}
-                fontFamily={fontFamily}
-                color="white"
-                padding="10.506px 0" // Padding to match the example
-                margin="0 11.9px" // Match the horizontal margin
-                transition="color 0.8s ease-in-out, background-color 0.8s ease-in-out, opacity 0.8s"
-                _focus={{ boxShadow: 'none' }}
-                cursor="pointer"
-                opacity={hoveredItem && hoveredItem !== item ? 0.5 : 1} // Dim other links
-                onMouseEnter={() => setHoveredItem(item)} // Set hovered item
-                onMouseLeave={() => setHoveredItem(null)} // Reset when not hovering
-              >
-                {item}
-              </Text>
+            {['Research', 'News', 'Media', 'People', 'Publications', 'Opportunities'].map((item, index) => (
+              <NavLink key={index} to={`/${item}`}>
+                <Text
+                  as="a"
+                  fontSize={fontSize}
+                  fontFamily={fontFamily}
+                  color="white"
+                  padding="10.506px 0" // Padding to match the example
+                  margin="0 11.9px" // Match the horizontal margin
+                  transition="color 0.8s ease-in-out, background-color 0.8s ease-in-out, opacity 0.8s"
+                  _focus={{ boxShadow: 'none' }}
+                  cursor="pointer"
+                  opacity={hoveredItem && hoveredItem !== item ? 0.5 : 1} // Dim other links
+                  onMouseEnter={() => setHoveredItem(item)} // Set hovered item
+                  onMouseLeave={() => setHoveredItem(null)} // Reset when not hovering
+
+                >
+                  {item}
+                </Text>
+              </NavLink>
             ))}
           </Stack>
           <IconButton
@@ -102,30 +107,31 @@ const Navbar = () => {
         <DrawerContent bg={backgroundColor} color="white">
           <DrawerCloseButton />
           <DrawerHeader>
-            <Image 
-              src={logo} 
-              alt="Urban Resilience.AI Lab" 
+            <Image
+              src={logo}
+              alt="Urban Resilience.AI Lab"
               boxSize="120px"
               objectFit="contain"
             />
           </DrawerHeader>
           <DrawerBody>
             <Stack spacing={4}>
-              {['Research', 'News', 'Media', 'People', 'Publications', 'Opportunities'].map((item) => (
-                <Text
-                  key={item}
-                  fontSize={fontSize}
-                  color="white"
-                  transition="color 0.2s ease-in-out, opacity 0.2s"
-                  _hover={{ color: activeColor }}
-                  _focus={{ boxShadow: 'none' }}
-                  cursor="pointer"
-                  opacity={hoveredItem && hoveredItem !== item ? 0.5 : 1}
-                  onMouseEnter={() => setHoveredItem(item)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                >
-                  {item}
-                </Text>
+              {['Research', 'News', 'Media', 'People', 'Publications', 'Opportunities'].map((item, index) => (
+                <NavLink key={index} to={`/${item}`}>
+                  <Text
+                    fontSize={fontSize}
+                    color="white"
+                    transition="color 0.2s ease-in-out, opacity 0.2s"
+                    _hover={{ color: activeColor }}
+                    _focus={{ boxShadow: 'none' }}
+                    cursor="pointer"
+                    opacity={hoveredItem && hoveredItem !== item ? 0.5 : 1}
+                    onMouseEnter={() => setHoveredItem(item)}
+                    onMouseLeave={() => setHoveredItem(null)}
+                  >
+                    {item}
+                  </Text>
+                </NavLink>
               ))}
             </Stack>
           </DrawerBody>
@@ -136,4 +142,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-    

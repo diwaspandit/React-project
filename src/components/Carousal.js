@@ -1,9 +1,10 @@
-import { Box, Button, Heading, Text, Image, Flex, Link } from '@chakra-ui/react';
+import { Box, Button, Heading, Text, Image, Flex } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import img1 from '../Assets/slide/img1.jpeg';
 import img2 from '../Assets/slide/img2.jpeg';
 import img3 from '../Assets/slide/img3.jpeg';
+import { NavLink } from 'react-router-dom';
 
 const slides = [
   {
@@ -82,7 +83,7 @@ const Carousel = () => {
                 <Text fontSize="lg" mb="4">
                     {slide.description}
                 </Text>
-                <Link href={slide.link}>
+                <NavLink to="/Publications">
                     <Button
                     rightIcon={<FaArrowRight />}
                     colorScheme="teal"
@@ -91,7 +92,7 @@ const Carousel = () => {
                     >
                     Read More
                     </Button>
-                </Link>
+                </NavLink>
                 </Box>
             </Flex>
             ))}

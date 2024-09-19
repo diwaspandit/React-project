@@ -2,10 +2,10 @@ import React from 'react';
 import { Box, Heading, Text, IconButton, Image, Stack, VStack } from '@chakra-ui/react';
 import { EmailIcon } from '@chakra-ui/icons';
 import { FaTwitter } from 'react-icons/fa';
-import LatestMedia from './LatestMedia';
+import LatestNews from './LatestNews';
 import { NavLink } from 'react-router-dom';
 
-const Media = () => {
+const News = () => {
   return (
     <Box backgroundColor="#0b2e33">
     <Box
@@ -25,7 +25,7 @@ const Media = () => {
       {/* Left Section with Title and Icons */}
       <VStack align="flex-start" spacing={5}>
         <Heading as="h1" fontSize={['3xl', '4xl', '5xl']} fontWeight="bold">
-        Explore the <Text as="span" color="teal.400">media</Text> surrounding our research in urban equity and resilience.
+          Latest news in the <Text as="span" color="teal.400">Urban Resilience. AI</Text> Lab
         </Heading>
 
         {/* Social Media Icons */}
@@ -48,9 +48,9 @@ const Media = () => {
           />
         </Stack>
 
-        {/* Link to See All Medias */}
-        <NavLink to="/Media" color="teal.400" fontSize="lg" fontWeight="bold">
-          &#8595; See the full list of posts below
+        {/* Link to See All News */}
+        <NavLink to="/News" color="teal.400" fontSize="lg" fontWeight="bold">
+          &#8595; See all news
         </NavLink>
       </VStack>
 
@@ -85,9 +85,9 @@ const Media = () => {
         </Text>
       </Box>
     </Box>
-    <LatestMedia />
+    <LatestNews />
     </Box>
   );
 };
 
-export default Media;
+export default News;
